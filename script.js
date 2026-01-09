@@ -22,16 +22,17 @@
         "aaa"
     ];
 
-    let diableUp = function(){
+    let disableUp = function(){
         disableUpList.forEach(function(value,index,array){
             let containsString = ":contains('" + value + "')";
 
             // 屏蔽搜索页面
-            $("a.up-name" + containsString).parents('li.video-item').hide();
+            // $("a.up-name" + containsString).parents('li.video-item').hide();
+            $("span.bili-video-card__info--author" + containsString).parents('div.bili-video-card').hide();
 
             // 屏蔽主页面
             // $("a.ex-up" + containsString).parents("div.video-card-common").hide();
-            $("span.bili-video-card__info--author" + containsString).parents("div.bili-video-card").remove();
+            $("span.bili-video-card__info--author" + containsString).parents("div.bili-feed-card").remove();
 
             // 屏蔽排行榜
             // $("span.name" + containsString).parents("div.rank-wrap").hide();
@@ -42,10 +43,10 @@
         });
     }
 
-    //diableUp();
+    //disableUp();
     let count = 0;
     document.addEventListener('DOMNodeInserted', function() {
-        diableUp();
+        disableUp();
     }, false);
 })();
 
